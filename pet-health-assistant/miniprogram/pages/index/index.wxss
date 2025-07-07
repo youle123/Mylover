@@ -1,0 +1,329 @@
+/* pages/index/index.wxss */
+
+/* 用户信息卡片 */
+.user-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #FF6B9D 0%, #FF8FA3 100%);
+  color: white;
+  margin-top: 20rpx;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  margin-right: 20rpx;
+  border: 3rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+
+.user-desc {
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+.weather-info {
+  text-align: right;
+}
+
+.weather-temp {
+  font-size: 36rpx;
+  font-weight: 600;
+  display: block;
+}
+
+.weather-desc {
+  font-size: 22rpx;
+  opacity: 0.8;
+}
+
+/* 快速操作 */
+.quick-actions {
+  margin-top: 20rpx;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30rpx;
+  margin-top: 20rpx;
+}
+
+.action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  border-radius: 16rpx;
+  background: #F8F9FA;
+  transition: all 0.3s ease;
+}
+
+.action-item:active {
+  background: #E9ECEF;
+  transform: scale(0.95);
+}
+
+.action-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 16rpx;
+}
+
+.action-icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.action-text {
+  font-size: 24rpx;
+  color: #333333;
+  text-align: center;
+}
+
+/* 我的宠物 */
+.my-pets {
+  margin-top: 20rpx;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.view-all {
+  font-size: 24rpx;
+  color: #FF6B9D;
+}
+
+.pets-scroll {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.pets-list {
+  display: inline-flex;
+  gap: 20rpx;
+}
+
+/* 今日提醒 */
+.today-reminders {
+  margin-top: 20rpx;
+}
+
+.reminder-count {
+  font-size: 24rpx;
+  color: #FF6B9D;
+  background: rgba(255, 107, 157, 0.1);
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.reminders-list {
+  margin-top: 20rpx;
+}
+
+/* 健康趋势 */
+.health-trend {
+  margin-top: 20rpx;
+}
+
+.trend-summary {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30rpx;
+  padding-top: 30rpx;
+  border-top: 1rpx solid #F0F0F0;
+}
+
+.trend-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trend-label {
+  font-size: 24rpx;
+  color: #999999;
+  margin-bottom: 8rpx;
+}
+
+.trend-value {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+/* AI建议 */
+.ai-suggestions {
+  margin-top: 20rpx;
+}
+
+.ai-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 10rpx;
+}
+
+.suggestions-list {
+  margin-top: 20rpx;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.suggestion-icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.suggestion-content {
+  flex: 1;
+}
+
+.suggestion-title {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.suggestion-desc {
+  font-size: 24rpx;
+  color: #666666;
+  line-height: 1.6;
+}
+
+/* 社区动态 */
+.community-posts {
+  margin-top: 20rpx;
+}
+
+.posts-list {
+  margin-top: 20rpx;
+}
+
+/* 添加宠物提示 */
+.add-pet-tip {
+  margin-top: 20rpx;
+  text-align: center;
+}
+
+.tip-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tip-icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 30rpx;
+  opacity: 0.6;
+}
+
+.tip-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16rpx;
+}
+
+.tip-desc {
+  font-size: 26rpx;
+  color: #666666;
+  margin-bottom: 30rpx;
+  line-height: 1.6;
+}
+
+/* 悬浮按钮 */
+.fab {
+  position: fixed;
+  right: 30rpx;
+  bottom: 120rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: linear-gradient(135deg, #FF6B9D 0%, #FF8FA3 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(255, 107, 157, 0.4);
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.fab:active {
+  transform: scale(0.9);
+}
+
+.fab image {
+  width: 40rpx;
+  height: 40rpx;
+  filter: brightness(0) invert(1);
+}
+
+/* 响应式适配 */
+@media (max-width: 375px) {
+  .actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20rpx;
+  }
+  
+  .action-item {
+    padding: 30rpx 20rpx;
+  }
+}
+
+/* 动画效果 */
+.card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.action-item:nth-child(1) { animation-delay: 0.1s; }
+.action-item:nth-child(2) { animation-delay: 0.2s; }
+.action-item:nth-child(3) { animation-delay: 0.3s; }
+.action-item:nth-child(4) { animation-delay: 0.4s; }
