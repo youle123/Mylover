@@ -1,0 +1,89 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/pets/pets",
+    "pages/pet-detail/pet-detail",
+    "pages/add-pet/add-pet",
+    "pages/health-record/health-record",
+    "pages/add-record/add-record",
+    "pages/reminders/reminders",
+    "pages/add-reminder/add-reminder",
+    "pages/community/community",
+    "pages/post-detail/post-detail",
+    "pages/profile/profile",
+    "pages/ai-advice/ai-advice",
+    "pages/vet-consult/vet-consult"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF6B9D",
+    "navigationBarTitleText": "宠物健康助手",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F8F9FA",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FF6B9D",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab/home.png",
+        "selectedIconPath": "images/tab/home-active.png"
+      },
+      {
+        "pagePath": "pages/pets/pets",
+        "text": "宠物",
+        "iconPath": "images/tab/pet.png",
+        "selectedIconPath": "images/tab/pet-active.png"
+      },
+      {
+        "pagePath": "pages/health-record/health-record",
+        "text": "健康",
+        "iconPath": "images/tab/health.png",
+        "selectedIconPath": "images/tab/health-active.png"
+      },
+      {
+        "pagePath": "pages/reminders/reminders",
+        "text": "提醒",
+        "iconPath": "images/tab/reminder.png",
+        "selectedIconPath": "images/tab/reminder-active.png"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "社区",
+        "iconPath": "images/tab/community.png",
+        "selectedIconPath": "images/tab/community-active.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false,
+  "cloud": true,
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "requiredBackgroundModes": ["audio"],
+  "plugins": {},
+  "resizable": true,
+  "navigateToMiniProgramAppIdList": [],
+  "usingComponents": {
+    "pet-card": "/components/pet-card/pet-card",
+    "health-chart": "/components/health-chart/health-chart",
+    "reminder-card": "/components/reminder-card/reminder-card",
+    "loading": "/components/loading/loading",
+    "empty": "/components/empty/empty"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
