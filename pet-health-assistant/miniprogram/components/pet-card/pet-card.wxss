@@ -1,0 +1,156 @@
+/* components/pet-card/pet-card.wxss */
+.pet-card {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  min-width: 280rpx;
+}
+
+.pet-card:active {
+  transform: translateY(-4rpx);
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.1);
+}
+
+.pet-avatar {
+  position: relative;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 auto 20rpx;
+}
+
+.pet-avatar image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4rpx solid #F0F0F0;
+}
+
+.pet-status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  border: 3rpx solid #FFFFFF;
+}
+
+.pet-status.good {
+  background: #34C759;
+}
+
+.pet-status.warning {
+  background: #FF9500;
+}
+
+.pet-status.danger {
+  background: #FF3B30;
+}
+
+.pet-info {
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.pet-name {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 8rpx;
+}
+
+.pet-breed {
+  display: block;
+  font-size: 24rpx;
+  color: #666666;
+  margin-bottom: 4rpx;
+}
+
+.pet-age {
+  display: block;
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.pet-stats {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #F0F0F0;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 22rpx;
+  color: #999999;
+  margin-bottom: 8rpx;
+}
+
+.stat-value {
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.pet-actions {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  display: flex;
+  gap: 10rpx;
+}
+
+.action-btn {
+  width: 40rpx;
+  height: 40rpx;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.action-btn:active {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(0.9);
+}
+
+.action-btn image {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+/* 紧凑模式 */
+.pet-card.compact {
+  padding: 20rpx;
+  min-width: 200rpx;
+}
+
+.pet-card.compact .pet-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 16rpx;
+}
+
+.pet-card.compact .pet-name {
+  font-size: 28rpx;
+  margin-bottom: 4rpx;
+}
+
+.pet-card.compact .pet-breed {
+  font-size: 22rpx;
+}
+
+.pet-card.compact .pet-age {
+  font-size: 20rpx;
+}

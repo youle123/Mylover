@@ -1,0 +1,35 @@
+<!--components/pet-card/pet-card.wxml-->
+<view class="pet-card" bindtap="onTap">
+  <view class="pet-avatar">
+    <image src="{{pet.avatar || '/images/default/pet-avatar.png'}}" mode="aspectFill"></image>
+    <view class="pet-status {{pet.healthStatus}}" wx:if="{{pet.healthStatus}}"></view>
+  </view>
+  
+  <view class="pet-info">
+    <text class="pet-name">{{pet.name}}</text>
+    <text class="pet-breed">{{pet.breed}}</text>
+    <text class="pet-age">{{pet.age}}{{pet.ageUnit === 'month' ? '个月' : '岁'}}</text>
+  </view>
+  
+  <view class="pet-stats" wx:if="{{!compact}}">
+    <view class="stat-item">
+      <text class="stat-label">体重</text>
+      <text class="stat-value">{{pet.weight || '--'}}kg</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-label">健康</text>
+      <text class="stat-value {{pet.healthStatus === 'good' ? 'text-success' : 'text-warning'}}">
+        {{pet.healthStatus === 'good' ? '良好' : '关注'}}
+      </text>
+    </view>
+  </view>
+  
+  <view class="pet-actions" wx:if="{{showActions}}">
+    <view class="action-btn" bindtap="onEdit" data-action="edit">
+      <image src="/images/icons/edit.png" mode="aspectFit"></image>
+    </view>
+    <view class="action-btn" bindtap="onDelete" data-action="delete">
+      <image src="/images/icons/delete.png" mode="aspectFit"></image>
+    </view>
+  </view>
+</view>

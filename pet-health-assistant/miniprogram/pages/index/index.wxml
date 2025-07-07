@@ -1,0 +1,167 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 自定义导航栏 -->
+  <custom-nav-bar title="宠物健康助手" showBack="{{false}}"></custom-nav-bar>
+  
+  <!-- 用户信息卡片 -->
+  <view class="user-card card" wx:if="{{userInfo}}">
+    <view class="user-info">
+      <image class="user-avatar avatar-medium" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <view class="user-details">
+        <text class="user-name">{{userInfo.nickName}}</text>
+        <text class="user-desc">今天也要好好照顾宠物哦~</text>
+      </view>
+    </view>
+    <view class="weather-info" wx:if="{{weather}}">
+      <text class="weather-temp">{{weather.temperature}}°</text>
+      <text class="weather-desc">{{weather.description}}</text>
+    </view>
+  </view>
+
+  <!-- 快速操作 -->
+  <view class="quick-actions card">
+    <view class="card-title">快速操作</view>
+    <view class="actions-grid">
+      <view class="action-item" bindtap="navigateToAddRecord">
+        <view class="action-icon">
+          <image src="/images/icons/add-record.png" mode="aspectFit"></image>
+        </view>
+        <text class="action-text">记录健康</text>
+      </view>
+      <view class="action-item" bindtap="navigateToReminders">
+        <view class="action-icon">
+          <image src="/images/icons/reminder.png" mode="aspectFit"></image>
+        </view>
+        <text class="action-text">设置提醒</text>
+      </view>
+      <view class="action-item" bindtap="navigateToAIAdvice">
+        <view class="action-icon">
+          <image src="/images/icons/ai.png" mode="aspectFit"></image>
+        </view>
+        <text class="action-text">AI建议</text>
+      </view>
+      <view class="action-item" bindtap="navigateToVetConsult">
+        <view class="action-icon">
+          <image src="/images/icons/vet.png" mode="aspectFit"></image>
+        </view>
+        <text class="action-text">在线咨询</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 我的宠物 -->
+  <view class="my-pets card" wx:if="{{pets.length > 0}}">
+    <view class="card-title">
+      <text>我的宠物</text>
+      <text class="view-all" bindtap="navigateToPets">查看全部</text>
+    </view>
+    <scroll-view class="pets-scroll" scroll-x="true" show-scrollbar="false">
+      <view class="pets-list">
+        <pet-card 
+          wx:for="{{pets}}" 
+          wx:key="id" 
+          pet="{{item}}"
+          bindtap="selectPet"
+          data-pet="{{item}}"
+        ></pet-card>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 今日提醒 -->
+  <view class="today-reminders card" wx:if="{{todayReminders.length > 0}}">
+    <view class="card-title">
+      <text>今日提醒</text>
+      <text class="reminder-count">{{todayReminders.length}}项</text>
+    </view>
+    <view class="reminders-list">
+      <reminder-item 
+        wx:for="{{todayReminders}}" 
+        wx:key="id" 
+        reminder="{{item}}"
+        bindcomplete="completeReminder"
+      ></reminder-item>
+    </view>
+  </view>
+
+  <!-- 健康趋势 -->
+  <view class="health-trend card" wx:if="{{currentPet}}">
+    <view class="card-title">{{currentPet.name}}的健康趋势</view>
+    <health-chart 
+      type="weight" 
+      data="{{healthData}}"
+      pet="{{currentPet}}"
+    ></health-chart>
+    <view class="trend-summary">
+      <view class="trend-item">
+        <text class="trend-label">当前体重</text>
+        <text class="trend-value">{{currentPet.weight}}kg</text>
+      </view>
+      <view class="trend-item">
+        <text class="trend-label">健康状态</text>
+        <text class="trend-value {{currentPet.healthStatus === 'good' ? 'text-success' : 'text-warning'}}">
+          {{currentPet.healthStatus === 'good' ? '良好' : '需关注'}}
+        </text>
+      </view>
+    </view>
+  </view>
+
+  <!-- AI健康建议 -->
+  <view class="ai-suggestions card" wx:if="{{aiSuggestions.length > 0}}">
+    <view class="card-title">
+      <text>AI健康建议</text>
+      <image class="ai-icon" src="/images/icons/ai-small.png" mode="aspectFit"></image>
+    </view>
+    <view class="suggestions-list">
+      <view class="suggestion-item" wx:for="{{aiSuggestions}}" wx:key="id">
+        <view class="suggestion-icon">
+          <image src="{{item.icon}}" mode="aspectFit"></image>
+        </view>
+        <view class="suggestion-content">
+          <text class="suggestion-title">{{item.title}}</text>
+          <text class="suggestion-desc">{{item.description}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 社区动态 -->
+  <view class="community-posts card" wx:if="{{communityPosts.length > 0}}">
+    <view class="card-title">
+      <text>社区动态</text>
+      <text class="view-all" bindtap="navigateToCommunity">查看更多</text>
+    </view>
+    <view class="posts-list">
+      <post-card 
+        wx:for="{{communityPosts}}" 
+        wx:key="id" 
+        post="{{item}}"
+        compact="true"
+        bindtap="navigateToPostDetail"
+        data-post="{{item}}"
+      ></post-card>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{!userInfo}}">
+    <image class="empty-icon" src="/images/empty/no-login.png" mode="aspectFit"></image>
+    <text class="empty-text">请先登录以使用完整功能</text>
+    <button class="btn btn-primary" bindtap="login">立即登录</button>
+  </view>
+
+  <!-- 添加宠物提示 -->
+  <view class="add-pet-tip card" wx:if="{{userInfo && pets.length === 0}}">
+    <view class="tip-content">
+      <image class="tip-icon" src="/images/empty/no-pet.png" mode="aspectFit"></image>
+      <text class="tip-title">还没有宠物档案</text>
+      <text class="tip-desc">添加您的第一只宠物，开始健康管理之旅</text>
+      <button class="btn btn-primary btn-small" bindtap="navigateToAddPet">添加宠物</button>
+    </view>
+  </view>
+</view>
+
+<!-- 悬浮按钮 -->
+<view class="fab" bindtap="showActionSheet">
+  <image src="/images/icons/add.png" mode="aspectFit"></image>
+</view>
