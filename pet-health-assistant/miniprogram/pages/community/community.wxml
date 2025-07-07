@@ -1,0 +1,64 @@
+<!--社区页面-->
+<view class="page">
+  <view class="page-header">
+    <text class="page-title">宠物社区</text>
+    <button class="btn btn-primary btn-small" bindtap="navigateToPost">
+      <text class="icon">✏️</text>
+      发帖
+    </button>
+  </view>
+
+  <!-- 分类标签 -->
+  <view class="category-tabs">
+    <view class="tab-item {{activeTab === 'all' ? 'active' : ''}}" bindtap="onTabChange" data-tab="all">
+      全部
+    </view>
+    <view class="tab-item {{activeTab === 'health' ? 'active' : ''}}" bindtap="onTabChange" data-tab="health">
+      健康
+    </view>
+    <view class="tab-item {{activeTab === 'daily' ? 'active' : ''}}" bindtap="onTabChange" data-tab="daily">
+      日常
+    </view>
+    <view class="tab-item {{activeTab === 'question' ? 'active' : ''}}" bindtap="onTabChange" data-tab="question">
+      求助
+    </view>
+  </view>
+
+  <!-- 帖子列表 -->
+  <view class="posts-list" wx:if="{{posts.length > 0}}">
+    <view class="post-item" wx:for="{{posts}}" wx:key="id" bindtap="onPostTap" data-id="{{item.id}}">
+      <view class="post-header">
+        <image class="author-avatar" src="{{item.author.avatar}}" mode="aspectFill"></image>
+        <view class="author-info">
+          <text class="author-name">{{item.author.name}}</text>
+          <text class="post-time">{{item.createTime}}</text>
+        </view>
+        <view class="post-category">{{item.category}}</view>
+      </view>
+      
+      <view class="post-content">
+        <text class="post-title">{{item.title}}</text>
+        <text class="post-text">{{item.content}}</text>
+        <view class="post-images" wx:if="{{item.images && item.images.length > 0}}">
+          <image wx:for="{{item.images}}" wx:key="*this" src="{{item}}" mode="aspectFill" class="post-image"></image>
+        </view>
+      </view>
+      
+      <view class="post-footer">
+        <view class="post-stats">
+          <text class="stat-item">👍 {{item.likes}}</text>
+          <text class="stat-item">💬 {{item.comments}}</text>
+          <text class="stat-item">👁️ {{item.views}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:else>
+    <image class="empty-image" src="/images/empty-community.png" mode="aspectFit"></image>
+    <text class="empty-title">暂无帖子</text>
+    <text class="empty-desc">成为第一个分享的人</text>
+    <button class="btn btn-primary" bindtap="navigateToPost">发布帖子</button>
+  </view>
+</view>

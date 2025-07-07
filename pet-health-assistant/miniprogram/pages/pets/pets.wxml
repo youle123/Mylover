@@ -1,0 +1,49 @@
+<!--宠物管理页面-->
+<view class="page">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">我的宠物</text>
+    <button class="btn btn-primary btn-small" bindtap="navigateToAddPet">
+      <text class="icon">+</text>
+      添加宠物
+    </button>
+  </view>
+
+  <!-- 宠物列表 -->
+  <view class="pets-list" wx:if="{{pets.length > 0}}">
+    <view class="pet-item" wx:for="{{pets}}" wx:key="id" bindtap="onPetTap" data-pet="{{item}}">
+      <image class="pet-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+      <view class="pet-info">
+        <view class="pet-basic">
+          <text class="pet-name">{{item.name}}</text>
+          <text class="pet-status {{item.healthStatus === '良好' ? 'status-good' : 'status-warning'}}">
+            {{item.healthStatus}}
+          </text>
+        </view>
+        <text class="pet-breed">{{item.breed}} · {{item.age}}岁</text>
+        <text class="pet-weight">体重: {{item.weight}}kg</text>
+      </view>
+      <view class="pet-actions">
+        <button class="action-btn" bindtap="onEditPet" data-pet="{{item}}" catchtap="true">
+          <text class="icon">✏️</text>
+        </button>
+        <button class="action-btn" bindtap="onDeletePet" data-id="{{item.id}}" catchtap="true">
+          <text class="icon">🗑️</text>
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:else>
+    <image class="empty-image" src="/images/empty-pet.png" mode="aspectFit"></image>
+    <text class="empty-title">还没有宠物</text>
+    <text class="empty-desc">添加您的第一只宠物，开始健康管理之旅</text>
+    <button class="btn btn-primary" bindtap="navigateToAddPet">添加宠物</button>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+</view>

@@ -1,0 +1,94 @@
+/* 宠物详情页面样式 */
+
+.page {
+  background-color: var(--bg-secondary);
+  min-height: 100vh;
+  padding: var(--spacing-md);
+}
+
+.pet-header {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius-large);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.pet-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-right: var(--spacing-lg);
+}
+
+.pet-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.pet-breed {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.pet-status {
+  font-size: 22rpx;
+  color: var(--success-color);
+}
+
+.info-section {
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius-large);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1rpx solid var(--border-light);
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+.info-value {
+  font-size: 26rpx;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.actions .btn {
+  flex: 1;
+}

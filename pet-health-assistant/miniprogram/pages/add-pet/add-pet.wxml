@@ -1,0 +1,53 @@
+<!--添加宠物页面-->
+<view class="page">
+  <view class="form-container">
+    <view class="form-item">
+      <text class="label">宠物头像</text>
+      <view class="avatar-upload" bindtap="chooseAvatar">
+        <image wx:if="{{petData.avatar}}" src="{{petData.avatar}}" mode="aspectFill" class="avatar-preview"></image>
+        <view wx:else class="avatar-placeholder">
+          <text class="icon">📷</text>
+          <text class="text">点击上传</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-item">
+      <text class="label">宠物姓名</text>
+      <input class="input" placeholder="请输入宠物姓名" value="{{petData.name}}" bindinput="onNameInput"/>
+    </view>
+
+    <view class="form-item">
+      <text class="label">宠物品种</text>
+      <input class="input" placeholder="请输入宠物品种" value="{{petData.breed}}" bindinput="onBreedInput"/>
+    </view>
+
+    <view class="form-item">
+      <text class="label">性别</text>
+      <radio-group bindchange="onGenderChange">
+        <label class="radio-item">
+          <radio value="公" checked="{{petData.gender === '公'}}"/>公
+        </label>
+        <label class="radio-item">
+          <radio value="母" checked="{{petData.gender === '母'}}"/>母
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="form-item">
+      <text class="label">出生日期</text>
+      <picker mode="date" value="{{petData.birthday}}" bindchange="onBirthdayChange">
+        <view class="picker">{{petData.birthday || '请选择出生日期'}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">体重 (kg)</text>
+      <input class="input" type="digit" placeholder="请输入体重" value="{{petData.weight}}" bindinput="onWeightInput"/>
+    </view>
+
+    <view class="form-actions">
+      <button class="btn btn-primary btn-block" bindtap="onSave">保存</button>
+    </view>
+  </view>
+</view>
