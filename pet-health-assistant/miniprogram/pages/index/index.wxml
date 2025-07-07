@@ -19,25 +19,25 @@
   <view class="quick-actions">
     <view class="action-item" bindtap="navigateToAddRecord">
       <view class="action-icon bg-primary">
-        <text class="iconfont icon-add"></text>
+        <text class="icon">+</text>
       </view>
       <text class="action-text">记录健康</text>
     </view>
     <view class="action-item" bindtap="navigateToAddReminder">
       <view class="action-icon bg-warning">
-        <text class="iconfont icon-bell"></text>
+        <text class="icon">🔔</text>
       </view>
       <text class="action-text">添加提醒</text>
     </view>
     <view class="action-item" bindtap="navigateToAIAdvice">
       <view class="action-icon bg-info">
-        <text class="iconfont icon-robot"></text>
+        <text class="icon">🤖</text>
       </view>
       <text class="action-text">AI建议</text>
     </view>
     <view class="action-item" bindtap="navigateToVetConsult">
       <view class="action-icon bg-success">
-        <text class="iconfont icon-doctor"></text>
+        <text class="icon">👩‍⚕️</text>
       </view>
       <text class="action-text">在线咨询</text>
     </view>
@@ -49,15 +49,22 @@
       <text class="section-title">我的宠物</text>
       <text class="section-more" bindtap="navigateToPets">查看全部</text>
     </view>
-    
+
     <view class="pets-container" wx:if="{{pets.length > 0}}">
       <swiper class="pets-swiper" indicator-dots="{{pets.length > 1}}" autoplay="{{false}}" circular="{{true}}">
         <swiper-item wx:for="{{pets}}" wx:key="id">
-          <pet-card pet="{{item}}" bind:tap="onPetTap"></pet-card>
+          <view class="pet-card" bindtap="onPetTap" data-pet="{{item}}">
+            <image class="pet-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+            <view class="pet-info">
+              <text class="pet-name">{{item.name}}</text>
+              <text class="pet-breed">{{item.breed}}</text>
+              <text class="pet-age">{{item.age}}岁</text>
+            </view>
+          </view>
         </swiper-item>
       </swiper>
     </view>
-    
+
     <view class="empty-pets" wx:else>
       <image class="empty-image" src="/images/empty-pet.png" mode="aspectFit"></image>
       <text class="empty-text">还没有添加宠物</text>
@@ -71,16 +78,20 @@
       <text class="section-title">今日提醒</text>
       <text class="section-more" bindtap="navigateToReminders">查看全部</text>
     </view>
-    
+
     <view class="reminders-list" wx:if="{{todayReminders.length > 0}}">
-      <reminder-card 
-        wx:for="{{todayReminders}}" 
-        wx:key="id" 
-        reminder="{{item}}"
-        bind:complete="onReminderComplete">
-      </reminder-card>
+      <view class="reminder-card" wx:for="{{todayReminders}}" wx:key="id">
+        <view class="reminder-icon">
+          <text class="icon">{{item.icon}}</text>
+        </view>
+        <view class="reminder-content">
+          <text class="reminder-title">{{item.title}}</text>
+          <text class="reminder-time">{{item.time}}</text>
+        </view>
+        <button class="btn btn-small" bindtap="onReminderComplete" data-id="{{item.id}}">完成</button>
+      </view>
     </view>
-    
+
     <view class="empty-reminders" wx:else>
       <text class="empty-text">今天没有提醒事项</text>
     </view>
@@ -92,31 +103,31 @@
       <text class="section-title">健康概览</text>
       <text class="section-more" bindtap="navigateToHealthRecord">查看详情</text>
     </view>
-    
+
     <view class="health-overview" wx:if="{{currentPet}}">
       <view class="health-item">
         <view class="health-icon bg-primary">
-          <text class="iconfont icon-weight"></text>
+          <text class="icon">⚖️</text>
         </view>
         <view class="health-info">
           <text class="health-label">体重</text>
           <text class="health-value">{{currentPet.weight || '--'}} kg</text>
         </view>
       </view>
-      
+
       <view class="health-item">
         <view class="health-icon bg-success">
-          <text class="iconfont icon-heart"></text>
+          <text class="icon">❤️</text>
         </view>
         <view class="health-info">
           <text class="health-label">健康状态</text>
           <text class="health-value">{{currentPet.healthStatus || '良好'}}</text>
         </view>
       </view>
-      
+
       <view class="health-item">
         <view class="health-icon bg-warning">
-          <text class="iconfont icon-calendar"></text>
+          <text class="icon">📅</text>
         </view>
         <view class="health-info">
           <text class="health-label">下次疫苗</text>
@@ -124,7 +135,7 @@
         </view>
       </view>
     </view>
-    
+
     <view class="empty-health" wx:else>
       <text class="empty-text">请先添加宠物</text>
     </view>
@@ -136,7 +147,7 @@
       <text class="section-title">社区动态</text>
       <text class="section-more" bindtap="navigateToCommunity">进入社区</text>
     </view>
-    
+
     <view class="community-posts" wx:if="{{communityPosts.length > 0}}">
       <view class="post-item" wx:for="{{communityPosts}}" wx:key="id" bindtap="navigateToPostDetail" data-id="{{item.id}}">
         <image class="post-avatar" src="{{item.author.avatar}}" mode="aspectFill"></image>
@@ -146,20 +157,14 @@
           <view class="post-meta">
             <text class="post-time">{{item.createTime}}</text>
             <view class="post-stats">
-              <text class="stat-item">
-                <text class="iconfont icon-like"></text>
-                {{item.likes}}
-              </text>
-              <text class="stat-item">
-                <text class="iconfont icon-comment"></text>
-                {{item.comments}}
-              </text>
+              <text class="stat-item">👍 {{item.likes}}</text>
+              <text class="stat-item">💬 {{item.comments}}</text>
             </view>
           </view>
         </view>
       </view>
     </view>
-    
+
     <view class="empty-community" wx:else>
       <text class="empty-text">暂无社区动态</text>
     </view>
@@ -170,4 +175,6 @@
 </view>
 
 <!-- 加载组件 -->
-<loading wx:if="{{loading}}"></loading>
+<view class="loading" wx:if="{{loading}}">
+  <text>加载中...</text>
+</view>

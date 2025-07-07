@@ -1,0 +1,9 @@
+<\!--add-reminder页面-->
+<view class="page">
+  <view class="page-header">
+    <text class="page-title">add-reminder</text>
+  </view>
+  <view class="content">
+    <text>页面开发中...</text>
+  </view>
+</view>

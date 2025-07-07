@@ -1,0 +1,23 @@
+/* vet-consult页面样式 */
+.page {
+  background-color: var(--bg-secondary);
+  min-height: 100vh;
+  padding: var(--spacing-md);
+}
+
+.page-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.content {
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius-large);
+  padding: var(--spacing-lg);
+  text-align: center;
+}

@@ -1,0 +1,178 @@
+/* 社区页面样式 */
+
+.page {
+  background-color: var(--bg-secondary);
+  min-height: 100vh;
+  padding: var(--spacing-md);
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* 分类标签 */
+.category-tabs {
+  display: flex;
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-xs);
+  margin-bottom: var(--spacing-lg);
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-small);
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.tab-item.active {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+}
+
+/* 帖子列表 */
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.post-item {
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease;
+}
+
+.post-item:active {
+  transform: scale(0.98);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.author-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-right: var(--spacing-sm);
+}
+
+.author-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.post-time {
+  font-size: 20rpx;
+  color: var(--text-disabled);
+}
+
+.post-category {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 20rpx;
+}
+
+.post-content {
+  margin-bottom: var(--spacing-sm);
+}
+
+.post-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.post-text {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+.post-images {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.post-image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: var(--border-radius-small);
+}
+
+.post-footer {
+  border-top: 1rpx solid var(--border-light);
+  padding-top: var(--spacing-sm);
+}
+
+.post-stats {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.stat-item {
+  font-size: 20rpx;
+  color: var(--text-disabled);
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xxl);
+  text-align: center;
+  min-height: 60vh;
+}
+
+.empty-image {
+  width: 300rpx;
+  height: 300rpx;
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.6;
+}
+
+.empty-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.empty-desc {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+}

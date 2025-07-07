@@ -1,0 +1,388 @@
+/* 首页样式 */
+
+.page {
+  background-color: var(--bg-secondary);
+  min-height: 100vh;
+  padding-bottom: var(--spacing-xl);
+}
+
+/* 顶部用户信息 */
+.header {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  padding: var(--spacing-lg) var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-white);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: var(--spacing-md);
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.user-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.greeting {
+  font-size: 24rpx;
+  opacity: 0.9;
+  margin-bottom: 4rpx;
+}
+
+.username {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.weather {
+  text-align: right;
+}
+
+.temperature {
+  font-size: 36rpx;
+  font-weight: bold;
+  display: block;
+}
+
+.weather-desc {
+  font-size: 20rpx;
+  opacity: 0.8;
+}
+
+/* 快速操作 */
+.quick-actions {
+  display: flex;
+  justify-content: space-around;
+  padding: var(--spacing-lg) var(--spacing-md);
+  background-color: var(--bg-primary);
+  margin: var(--spacing-md);
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-light);
+}
+
+.action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.action-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-xs);
+  transition: transform 0.3s ease;
+}
+
+.action-icon .icon {
+  font-size: 32rpx;
+  color: var(--text-white);
+}
+
+.action-item:active .action-icon {
+  transform: scale(0.95);
+}
+
+.action-text {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* 区块样式 */
+.section {
+  margin: var(--spacing-md);
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius-large);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-light);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.section-more {
+  font-size: 24rpx;
+  color: var(--primary-color);
+}
+
+/* 宠物卡片 */
+.pets-container {
+  margin-top: var(--spacing-md);
+}
+
+.pets-swiper {
+  height: 200rpx;
+}
+
+.pet-card {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--bg-light), var(--secondary-color));
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-md);
+  margin: 0 var(--spacing-xs);
+  transition: transform 0.3s ease;
+}
+
+.pet-card:active {
+  transform: scale(0.98);
+}
+
+.pet-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-right: var(--spacing-md);
+  border: 4rpx solid var(--primary-color);
+}
+
+.pet-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4rpx;
+}
+
+.pet-breed {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  margin-bottom: 4rpx;
+}
+
+.pet-age {
+  font-size: 20rpx;
+  color: var(--text-disabled);
+}
+
+/* 空状态 */
+.empty-pets,
+.empty-reminders,
+.empty-health,
+.empty-community {
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+}
+
+.empty-image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.6;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: var(--text-disabled);
+  margin-bottom: var(--spacing-md);
+}
+
+/* 提醒卡片 */
+.reminders-list {
+  margin-top: var(--spacing-md);
+}
+
+.reminder-card {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius-medium);
+  margin-bottom: var(--spacing-sm);
+  border-left: 6rpx solid var(--primary-color);
+}
+
+.reminder-icon {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-md);
+}
+
+.reminder-icon .icon {
+  font-size: 32rpx;
+}
+
+.reminder-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.reminder-title {
+  font-size: 28rpx;
+  color: var(--text-primary);
+  margin-bottom: 4rpx;
+}
+
+.reminder-time {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+/* 健康概览 */
+.health-overview {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-md);
+}
+
+.health-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius-medium);
+  margin: 0 var(--spacing-xs);
+}
+
+.health-icon {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.health-icon .icon {
+  font-size: 24rpx;
+  color: var(--text-white);
+}
+
+.health-info {
+  text-align: center;
+}
+
+.health-label {
+  font-size: 20rpx;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 4rpx;
+}
+
+.health-value {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* 社区动态 */
+.community-posts {
+  margin-top: var(--spacing-md);
+}
+
+.post-item {
+  display: flex;
+  padding: var(--spacing-md);
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius-medium);
+  margin-bottom: var(--spacing-sm);
+  transition: background-color 0.3s ease;
+}
+
+.post-item:active {
+  background-color: var(--border-light);
+}
+
+.post-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: var(--spacing-md);
+}
+
+.post-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-author {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4rpx;
+}
+
+.post-text {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-sm);
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-time {
+  font-size: 20rpx;
+  color: var(--text-disabled);
+}
+
+.post-stats {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.stat-item {
+  font-size: 20rpx;
+  color: var(--text-disabled);
+}
+
+/* 加载状态 */
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--text-white);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius-medium);
+  z-index: 1000;
+}
+
+/* 底部安全区域 */
+.safe-area-bottom {
+  height: env(safe-area-inset-bottom);
+}

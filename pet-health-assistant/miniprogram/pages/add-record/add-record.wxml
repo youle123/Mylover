@@ -1,0 +1,32 @@
+<!--添加健康记录页面-->
+<view class="page">
+  <view class="form-container">
+    <view class="form-item">
+      <text class="label">记录类型</text>
+      <picker range="{{recordTypes}}" value="{{selectedTypeIndex}}" bindchange="onTypeChange">
+        <view class="picker">{{recordTypes[selectedTypeIndex] || '请选择记录类型'}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">记录日期</text>
+      <picker mode="date" value="{{recordData.date}}" bindchange="onDateChange">
+        <view class="picker">{{recordData.date || '请选择日期'}}</view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="label">描述</text>
+      <textarea class="textarea" placeholder="请输入详细描述" value="{{recordData.description}}" bindinput="onDescriptionInput"></textarea>
+    </view>
+
+    <view class="form-item" wx:if="{{needValue}}">
+      <text class="label">数值</text>
+      <input class="input" type="digit" placeholder="请输入数值" value="{{recordData.value}}" bindinput="onValueInput"/>
+    </view>
+
+    <view class="form-actions">
+      <button class="btn btn-primary btn-block" bindtap="onSave">保存记录</button>
+    </view>
+  </view>
+</view>
